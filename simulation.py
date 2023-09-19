@@ -6,7 +6,7 @@ f = open('config.json')
 config = json.load(f)
 players = {}
 max_base = 6
-k_factor = 30
+k_factor = config['KFactor']
 
 def find_bucket_by_rating(loser_score: int):
     for b in config['Buckets']:
@@ -54,17 +54,16 @@ def process_ratings():
             winner_msg = f'{winner[0]}({winner_prev_rating}) beat {loser[0]}({loser_prev_rating}) {winner[1]}-{loser[1]} on {play_date}'
             loser_msg = f'{loser[0]}({loser_prev_rating}) lost to {winner[0]}({winner_prev_rating}) {winner[1]}-{loser[1]} on {play_date}'
 
-            expected = (find_bucket_by_diff(winner_prev_rating, loser_prev_rating) - 1)/max_base
-            if (winner_prev_rating > loser_prev_rating):
-                winner_new_rating = winner_prev_rating + k_factor*(actual - expected)
-                loser_new_rating = loser_prev_rating - k_factor*(actual-expected)
-                players[winner[0]]['Ratings'].append([winner_new_rating, winner_msg])
-                players[loser[0]]['Ratings'].append([loser_new_rating, loser_msg])
-            else:
-                winner_new_rating = winner_prev_rating + k_factor*(actual - expected)
-                loser_new_rating = loser_prev_rating - k_factor*(actual-expected)
-                players[winner[0]]['Ratings'].append([winner_new_rating, winner_msg])
-                players[loser[0]]['Ratings'].append([loser_new_rating, loser_msg])
+            expected_points = find_bucket_by_diff(winner_prev_rating, loser_prev_rating) - 1
+            expected = expected_points / max_base
+            upset_factor = 1
+            if (winner_prev_rating < loser_prev_rating) and expected_points > 1: #expected_points = 1 means they are within 50 pts of each others and hence it is not really an upset
+                upset_factor = -1 #This game was an upset                 
+
+            winner_new_rating = winner_prev_rating + k_factor*(actual - upset_factor * expected)
+            loser_new_rating = loser_prev_rating - k_factor*(actual - upset_factor * expected) 
+            players[winner[0]]['Ratings'].append([winner_new_rating, winner_msg])
+            players[loser[0]]['Ratings'].append([loser_new_rating, loser_msg])
 
 def print_ratings():
     for p in players:
