@@ -1,0 +1,40 @@
+{
+    "KFactor": 30,
+    "Buckets": [
+        {
+            "LowScorePoint": 0,
+            "HighScorePoint": 4,
+            "LowDiffPoint": 301,
+            "HighDiffPoint": 3000,
+            "Points" : 6
+        },
+        {
+            "LowScorePoint": 5,
+            "HighScorePoint": 9,
+            "LowDiffPoint": 201,
+            "HighDiffPoint": 300,
+            "Points" : 5
+        },
+        {
+            "LowScorePoint": 10,
+            "HighScorePoint": 14,
+            "LowDiffPoint": 101,
+            "HighDiffPoint": 200,
+            "Points" : 4
+        },
+        {
+            "LowScorePoint": 15,
+            "HighScorePoint": 19,
+            "LowDiffPoint": 51,
+            "HighDiffPoint": 100,
+            "Points" : 3
+        },
+        {
+            "LowScorePoint": 20,
+            "HighScorePoint": 30,
+            "LowDiffPoint": 0,
+            "HighDiffPoint": 50,
+            "Points" : 2
+        }
+    ]
+}
