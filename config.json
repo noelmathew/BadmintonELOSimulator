@@ -4,36 +4,36 @@
         {
             "LowScorePoint": 0,
             "HighScorePoint": 4,
-            "LowDiffPoint": 301,
+            "LowDiffPoint": 300,
             "HighDiffPoint": 3000,
             "Points" : 6
         },
         {
             "LowScorePoint": 5,
             "HighScorePoint": 9,
-            "LowDiffPoint": 201,
-            "HighDiffPoint": 300,
+            "LowDiffPoint": 200,
+            "HighDiffPoint": 299,
             "Points" : 5
         },
         {
             "LowScorePoint": 10,
             "HighScorePoint": 14,
-            "LowDiffPoint": 101,
-            "HighDiffPoint": 200,
+            "LowDiffPoint": 100,
+            "HighDiffPoint": 199,
             "Points" : 4
         },
         {
             "LowScorePoint": 15,
             "HighScorePoint": 19,
-            "LowDiffPoint": 51,
-            "HighDiffPoint": 100,
+            "LowDiffPoint": 50,
+            "HighDiffPoint": 99,
             "Points" : 3
         },
         {
             "LowScorePoint": 20,
             "HighScorePoint": 30,
             "LowDiffPoint": 0,
-            "HighDiffPoint": 50,
+            "HighDiffPoint": 49,
             "Points" : 2
         }
     ]
