@@ -69,7 +69,7 @@ def print_ratings():
     with open("AuditLog.txt", "w") as log_file:
         for p in players:
             player = players[p]
-            log_file.write(f'({player["Name"]}\n')
+            log_file.write(f'{player["Name"]}\n')
             log_file.write(f'---------------------------------------------\n')
             for i in player['Ratings']:
                 log_file.write(str(i)+'\n')
