@@ -69,17 +69,17 @@ def print_ratings():
     with open("AuditLog.txt", "w") as log_file:
         for p in players:
             player = players[p]
-            log_file.write(f'({player["Name"]}')
-            log_file.write(f'---------------------------------------------')
+            log_file.write(f'({player["Name"]}\n')
+            log_file.write(f'---------------------------------------------\n')
             for i in player['Ratings']:
-                log_file.write(str(i))
-            log_file.write(f'*********************************************')
+                log_file.write(str(i)+'\n')
+            log_file.write(f'*********************************************\n')
 
     with open("Ratings.txt", "w") as rating_file:
         rank = (dict(sorted(players.items(), key=lambda item: item[1]['Ratings'][-1][0], reverse=True)))
         for i in rank:
             p = rank[i]
-            rating_file.write(f'{p["Name"]}: {p["Ratings"][-1][0]}')
+            rating_file.write(f'{p["Name"]}: {p["Ratings"][-1][0]}\n')
 
 
 def main():
