@@ -33,7 +33,6 @@ jobs:
         python simulation.py
     - name: commit files
       run: |
-          commit_id = `git log --format="%H" -n 1`
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add -A
