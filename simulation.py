@@ -66,18 +66,20 @@ def process_ratings():
             players[loser[0]]['Ratings'].append([loser_new_rating, loser_msg])
 
 def print_ratings():
-    for p in players:
-        player = players[p]
-        print(f'{player["Name"]}')
-        print(f'---------------------------------------------')
-        for i in player['Ratings']:
-            print(i)
-        print(f'*********************************************')
+    with open("AuditLog.txt", "w") as log_file:
+        for p in players:
+            player = players[p]
+            log_file.write(f'{player["Name"]}')
+            log_file.write(f'---------------------------------------------')
+            for i in player['Ratings']:
+                log_file.write(i)
+            log_file.write(f'*********************************************')
 
-    rank = (dict(sorted(players.items(), key=lambda item: item[1]['Ratings'][-1][0], reverse=True)))
-    for i in rank:
-        p = rank[i]
-        print(f'{p["Name"]}: {p["Ratings"][-1][0]}')
+    with open("Ratings.txt", "w") as rating_file:
+        rank = (dict(sorted(players.items(), key=lambda item: item[1]['Ratings'][-1][0], reverse=True)))
+        for i in rank:
+            p = rank[i]
+            rating_file.write(f'{p["Name"]}: {p["Ratings"][-1][0]}')
 
 
 def main():
