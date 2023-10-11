@@ -34,8 +34,8 @@ def process_ratings():
     with open('ScoreData.csv', newline='') as csvfile:
         reader = list(csv.reader(csvfile, delimiter=','))
         for row in reader:
-	    if row.startswith("#"): #Skipped scores from calculations
-     		continue
+            if row.startswith("#"): #Skipped scores from calculations
+                continue
             play_date = row[0]
             p1 = [row[1], int(row[2])]
             p2 = [row[3], int(row[4])]
